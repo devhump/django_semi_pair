@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+
+{% block content %}
+
+<h1>2. 글쓰기 페이지</h1><hr>
+
+<div class='container'>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form article_form %}
+    {% bootstrap_button button_type='submit' content='글쓰기' %}
+  </form>
+  <div class="text-end">
+    <a href="{% url 'articles:index' %}">목록으로</a>
+  </div>
+</div>
+
+{% endblock content %}
