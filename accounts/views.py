@@ -60,8 +60,13 @@ def detail(request, user_pk):
 
     user = get_user_model().objects.get(pk=user_pk)
 
+    user_comments = user.comment_set.all()
+    user_articles = user.article_set.all()
+
     context = {
         'user' : user,
+        'user_comments' : user_comments,  
+        'user_articles' : user_articles,
     }
 
     return render(request, "accounts/detail.html", context)
