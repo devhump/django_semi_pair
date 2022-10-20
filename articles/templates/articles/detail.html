@@ -21,7 +21,7 @@
   </form><hr>
   <h1>댓글 모음</h1><hr>
   {% for i in comment %}
-    <p>글쓴이:{{i.user}}|{{ i.content }}<p>
+    <p>{{i.user}} : {{ i.content }}<p>
   {% empty %}
     <h5 class='text-center'> - 댓글이 없습니다. - </h5>
   {% endfor %}

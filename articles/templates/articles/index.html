@@ -6,9 +6,10 @@
 <a href="{% url 'articles:create' %}">글쓰기</a><hr>
 {% for i in articles %}
 
-  |글 번호:  {{ i.pk }}  |글 제목:  
-  <a href="{% url 'articles:detail' i.pk %}">{{ i.title }}</a>  |
-  |글쓴이: {{ i.user }}
+  |  글 번호:  {{ i.pk }}  |  글 제목:  
+  <a href="{% url 'articles:detail' i.pk %}">{{ i.title }}</a>
+  |  글쓴이: 
+  <a href="{% url 'accounts:detail' i.user.pk %}">{{ i.user }}</a>
   <hr>
 
 {% endfor %}
