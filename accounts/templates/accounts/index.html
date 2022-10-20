@@ -1,2 +1,11 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
 <p> accounts/index page </p>
 
+<a href={% url 'accounts:signup' %}> 회원가입 </a>
+
+
+{% endblock %}
