@@ -6,6 +6,24 @@
 <p> accounts/index page </p>
 
 <a href={% url 'accounts:signup' %}> 회원가입 </a>
+{% comment %} <a href={% url 'accounts:login' %}> 로그인 </a> {% endcomment %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">PK</th>
+      <th scope="col">username</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <th scope="row">{{ user.pk }}</th>
+      <td>{{ user.username }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 
 {% endblock %}
