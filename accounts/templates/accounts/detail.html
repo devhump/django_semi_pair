@@ -3,3 +3,18 @@
 <p>가입일시: {{ user.date_joined }} </p>
 
 <a href={% url 'accounts:update' %}> 회원정보수정 </a>
+
+<hr>
+
+<p> 내가 작성한 글 목록 </p>
+
+{% for user_comment in user_comments %}
+<p>{{ user_comment.content }}</p>
+{% endfor %}
+
+<hr>
+
+<p> 내가 작성한 댓글 목록 </p>
+{% for user_article in user_articles %}
+<p>{{ user_article.title }}</p>
+{% endfor %}
