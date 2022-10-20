@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 
 <h1>3. 디테일 페이지</h1><hr>
-<p>{{ article.pk }}</p>
-<h1>{{ article.title }}</h1>
-<p>{{ article.content }}</p>
-<a href="{% url 'articles:update' article.pk %}">수정</a>
-<a href="{% url 'articles:delete' article.pk %}">삭제</a>
+
+<div class='container'>
+  <p>{{ article.pk }}</p>
+  <h1>{{ article.title }}</h1>
+  <p>{{ article.content }}</p>
+  <a href="{% url 'articles:update' article.pk %}">수정</a>
+  <a href="{% url 'articles:delete' article.pk %}">삭제</a>
+  <div class="text-end">
+    <a href="{% url 'articles:index' %}">목록으로</a>
+  </div><hr>
+  <form action="{% url 'articles:c_create' article.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form comment_form layout="inline" %}
+    {% bootstrap_button button_type="submit" content="댓글작성" %}
+  </form><hr>
+  <h1>댓글 모음</h1><hr>
+  {% for i in comment %}
+    <p>{{ i.content }}<p>
+  {% empty %}
+    <h5 class='text-center'> - 댓글이 없습니다. - </h5>
+  {% endfor %}
+</div>
 
 
 {% endblock content %}
