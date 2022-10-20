@@ -5,8 +5,10 @@
 {% block content %}
 <p> accounts/index page </p>
 
+
+{{ user }} 님 안녕하세요
 <a href={% url 'accounts:signup' %}> 회원가입 </a>
-{% comment %} <a href={% url 'accounts:login' %}> 로그인 </a> {% endcomment %}
+<a href={% url 'accounts:login' %}> 로그인 </a>
 
 <table class="table">
   <thead>
